@@ -65,6 +65,11 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  #Rails proxy assets through CDN
+
+  # config.cdn_host = "https://pupilfirst.school/"
+  config.active_storage.resolve_model_to_route = :cdn_proxy
+
   # Raises error for missing translations
   # config.i18n.raise_on_missing_translations = true
 
@@ -85,5 +90,5 @@ Rails.application.configure do
   Bullet.skip_html_injection = true
 
   # In development , let's have ActiveStorage store everything on local disk
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 end
